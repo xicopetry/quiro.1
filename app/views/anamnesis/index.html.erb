@@ -1,31 +1,40 @@
-<h1>Listing anamnesis</h1>
-
-<table>
+<%- model_class = Anamnesi -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Anamnesi %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Queixa principal</th>
-      <th>Como aconteceu</th>
-      <th>Data inicio</th>
-      <th>Patient</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:queixa_principal) %></th>
+      <th><%= model_class.human_attribute_name(:como_aconteceu) %></th>
+      <th><%= model_class.human_attribute_name(:data_inicio) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @anamnesis.each do |anamnesi| %>
       <tr>
+        <td><%= anamnesi.id %></td>
         <td><%= anamnesi.queixa_principal %></td>
         <td><%= anamnesi.como_aconteceu %></td>
         <td><%= anamnesi.data_inicio %></td>
-        <td><%= anamnesi.patient %></td>
-        <td><%= link_to 'Show', anamnesi %></td>
-        <td><%= link_to 'Edit', edit_anamnesi_path(anamnesi) %></td>
-        <td><%= link_to 'Destroy', anamnesi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l anamnesi.created_at, format: :long %></td>
+        <td>
+          <%= link_to anamnesi_path(anamnesi), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to anamnesi_path(anamnesi), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Anamnesi', new_anamnesi_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_anamnesi_path,
+            :class => 'btn btn-primary' %>

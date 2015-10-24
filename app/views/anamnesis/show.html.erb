@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Anamnesi -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Anamnesi %></h1>
+</div>
 
-<p>
-  <strong>Queixa principal:</strong>
-  <%= @anamnesi.queixa_principal %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:queixa_principal) %></dt>
+      <dd><pre class="prettyprint"><%= @anamnesi.queixa_principal %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:como_aconteceu) %></dt>
+      <dd><pre class="prettyprint"><%= @anamnesi.como_aconteceu %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:data_inicio) %></dt>
+      <dd><pre class="prettyprint"><%= @anamnesi.data_inicio %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Como aconteceu:</strong>
-  <%= @anamnesi.como_aconteceu %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              anamnesis_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_anamnesi_path(@anamnesi), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              anamnesi_path(@anamnesi),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Data inicio:</strong>
-  <%= @anamnesi.data_inicio %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @anamnesi.patient %>
-</p>
-
-<%= link_to 'Edit', edit_anamnesi_path(@anamnesi) %> |
-<%= link_to 'Back', anamnesis_path %>

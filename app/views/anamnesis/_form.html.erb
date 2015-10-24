@@ -1,14 +1,28 @@
-<%= simple_form_for(@anamnesi) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :queixa_principal %>
-    <%= f.input :como_aconteceu %>
-    <%= f.input :data_inicio %>
-    <%= f.association :patient %>
+<%= form_for @anamnesi, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :queixa_principal, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :queixa_principal, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :como_aconteceu, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :como_aconteceu, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_inicio, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :data_inicio, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  anamnesis_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
