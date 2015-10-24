@@ -1,14 +1,28 @@
-<%= simple_form_for(@appointment) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :comentario %>
-    <%= f.input :data_entrada %>
-    <%= f.input :data_saida %>
-    <%= f.association :patient %>
+<%= form_for @appointment, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :comentario, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :comentario, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_entrada, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.datetime_select :data_entrada, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_saida, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.datetime_select :data_saida, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  appointments_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

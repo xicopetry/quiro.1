@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Appointment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Appointment %></h1>
+</div>
 
-<p>
-  <strong>Comentario:</strong>
-  <%= @appointment.comentario %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:comentario) %></dt>
+      <dd><pre class="prettyprint"><%= @appointment.comentario %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:data_entrada) %></dt>
+      <dd><pre class="prettyprint"><%= @appointment.data_entrada %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:data_saida) %></dt>
+      <dd><pre class="prettyprint"><%= @appointment.data_saida %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Data entrada:</strong>
-  <%= @appointment.data_entrada %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              appointments_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_appointment_path(@appointment), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              appointment_path(@appointment),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Data saida:</strong>
-  <%= @appointment.data_saida %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @appointment.patient %>
-</p>
-
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
