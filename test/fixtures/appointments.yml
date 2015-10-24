@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comentario: MyText
+  data_entrada: 2015-10-24 15:07:32
+  data_saida: 2015-10-24 15:07:32
+  patient_id: 
+
+two:
+  comentario: MyText
+  data_entrada: 2015-10-24 15:07:32
+  data_saida: 2015-10-24 15:07:32
+  patient_id: 
