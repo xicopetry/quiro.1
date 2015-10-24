@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  queixa_principal: MyString
+  como_aconteceu: MyString
+  data_inicio: 2015-10-24
+  patient_id: 
+
+two:
+  queixa_principal: MyString
+  como_aconteceu: MyString
+  data_inicio: 2015-10-24
+  patient_id: 
