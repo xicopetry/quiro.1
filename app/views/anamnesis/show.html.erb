@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Queixa principal:</strong>
+  <%= @anamnesi.queixa_principal %>
+</p>
+
+<p>
+  <strong>Como aconteceu:</strong>
+  <%= @anamnesi.como_aconteceu %>
+</p>
+
+<p>
+  <strong>Data inicio:</strong>
+  <%= @anamnesi.data_inicio %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @anamnesi.patient %>
+</p>
+
+<%= link_to 'Edit', edit_anamnesi_path(@anamnesi) %> |
+<%= link_to 'Back', anamnesis_path %>

@@ -1,0 +1,31 @@
+<h1>Listing anamnesis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Queixa principal</th>
+      <th>Como aconteceu</th>
+      <th>Data inicio</th>
+      <th>Patient</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anamnesis.each do |anamnesi| %>
+      <tr>
+        <td><%= anamnesi.queixa_principal %></td>
+        <td><%= anamnesi.como_aconteceu %></td>
+        <td><%= anamnesi.data_inicio %></td>
+        <td><%= anamnesi.patient %></td>
+        <td><%= link_to 'Show', anamnesi %></td>
+        <td><%= link_to 'Edit', edit_anamnesi_path(anamnesi) %></td>
+        <td><%= link_to 'Destroy', anamnesi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anamnesi', new_anamnesi_path %>
